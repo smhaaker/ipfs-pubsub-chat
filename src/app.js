@@ -35,11 +35,16 @@ room.on('peer joined', (peer) => console.log('peer ' + peer + ' joined'))
 room.on('peer left', (peer) => console.log('peer ' + peer + ' left'))
 
 room.on('peer joined', (peer) => room.sendTo(peer, 'Hello ' + peer))
-room.on('message', (message) => 
-    console.log('got message from ' + message.from + ' : ' + message.data.toString()))
+let textOutputHTML = document.getElementById('textOutput')
+let status = document.getElementById('status')
 
+room.on('message', (message) => 
+    // console.log('got message from ' + message.from + ' : ' + message.data.toString())
+    textOutputHTML.innerHTML = 'message from: ' + message.from + ' content: ' + message.data.toString()
+    )
 room.on('subscribed', () => {
     console.log('connected')
+    status.innerHTML = 'connected'
 })
 
     // testing broadcast every 2 seconds
