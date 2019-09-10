@@ -71,6 +71,5 @@ function repo () {
     return 'ipfs/pubsub/' + Math.random()
 }
 
-testFunction()
 
 
