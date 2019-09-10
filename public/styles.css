@@ -1,0 +1,29 @@
+html {
+    background-color: gold;
+}
+
+
+ img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*QuickReset*/*{margin:0;box-sizing:border-box;}
+
+
+body {                /* body - or any parent wrapper */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+header {
+    background-color: white;
+}
+
+main {
+    flex: 1;
+}
+footer {
+    background-color: blue;
+}

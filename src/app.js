@@ -40,7 +40,7 @@ let status = document.getElementById('status')
 
 room.on('message', (message) => 
     // console.log('got message from ' + message.from + ' : ' + message.data.toString())
-    textOutputHTML.innerHTML = 'message from: ' + message.from + ' content: ' + message.data.toString()
+    textOutputHTML.innerHTML += '<br/>message from: <b>' + message.from + ' </b>: ' + message.data.toString()
     )
 room.on('subscribed', () => {
     console.log('connected')
@@ -57,19 +57,13 @@ function sendMsgOnClick() {
 
     console.log(room.getPeers())
     let peers = room.getPeers()
-    room.broadcast("THIS IS A MESSAGE ONCLICK")
-    room.broadcast("input message: " + getMessage)
-    room.sendTo(peers[0], "Message to first peer in list")
-    room.sendTo(peers[1], "Message to second peer in list")
+    // room.broadcast("THIS IS A MESSAGE ONCLICK")
+    room.broadcast( getMessage) // broadcasts a message to the room
+    // room.sendTo(peers[0], "Message to first peer in list")
+    // room.sendTo(peers[1], "Message to second peer in list")
 }
 let sendButton = document.getElementById('sendButton');
 sendButton.addEventListener('click', sendMsgOnClick);
-
-function testFunction () {
-    console.log('testing')
-}
-var button = document.getElementById('testButton'); 
-button.addEventListener('click', testFunction);
 
 function repo () {
     // returns random repo path to have different ID's
