@@ -1,4 +1,4 @@
-# ipfs-pubsub-tests
+# ipfs-pubsub-chat
 
 ipfs pubsub chat client experiment
 
