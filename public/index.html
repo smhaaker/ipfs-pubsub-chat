@@ -23,7 +23,17 @@
 
 
 <script src="js/app.js"></script>
+<script>
 
+let input = document.getElementById("msgInput");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("sendButton").click();
+  }
+});
+
+</script>
 </body>
 
 </html>

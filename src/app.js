@@ -61,7 +61,15 @@ function sendMsgOnClick() {
     room.broadcast( getMessage) // broadcasts a message to the room
     // room.sendTo(peers[0], "Message to first peer in list")
     // room.sendTo(peers[1], "Message to second peer in list")
+    clearInput()
 }
+
+function clearInput () {
+    let input = document.getElementById("msgInput")
+    console.log(input.value)
+    input.value = "";
+}
+
 let sendButton = document.getElementById('sendButton');
 sendButton.addEventListener('click', sendMsgOnClick);
 
