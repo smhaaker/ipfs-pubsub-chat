@@ -31,7 +31,7 @@ main {
 }
 footer {
     background-color: blue;
-    padding: 2px;
+    /* padding: 2px; */
 }
 
 #headerBar{
@@ -45,35 +45,36 @@ footer {
 #footerContent{
     /* float: right; */
 }
-
-input[type=text]{
+#msgInput{
     width: 80%;
+    height: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 0px 0;
     box-sizing: border-box;
-    border: 3px solid #ccc;
+    /* border: 3px solid #ccc; */
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
-input[type=text]:focus {
-    border: 3px solid #555;
+#msgInput:focus{
+    border: 2px solid #555;
 }
 button {
-    float: right;
+    /* float: right; */
     /* margin-right: 5px;
     margin-left: 5px; */
     padding: 10px;
-    margin-top: 1%;
+    /* margin-top: 1%; */
     width: 19%;
     background-color: #555555;
     color: white;
-    border: 2px solid #555555;
+    border: 0px solid #555555;
     -webkit-transition-duration: 0.4s;
-    cursor: pointer;border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    /* border-radius: 4px; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 button:hover{
     background-color: white; 
