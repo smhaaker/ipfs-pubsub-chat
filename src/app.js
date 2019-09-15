@@ -19,15 +19,24 @@ const ipfs = new IPFS({
     }
 })
 
+let ipfsID = document.getElementById('ipfsID')
+
 ipfs.once('ready', () => ipfs.id((err, info) => {
     if (err) { throw err}
     console.log('IPFS node running, pubsub enabled')
     console.log('Address: ' + info.id)
+    ipfsID.innerHTML = info.id
 }))
 
 console.log(ipfs)
 
+
+console.log(ipfs.pubsub)
+
+
+
 const room = Room(ipfs, 'ipfs-pubsub-rooms')
+// change to whatever room
 
 console.log(room)
 
@@ -40,14 +49,15 @@ let status = document.getElementById('status')
 
 room.on('message', (message) => 
     // console.log('got message from ' + message.from + ' : ' + message.data.toString())
-    textOutputHTML.innerHTML += '<br/>message from: <b>' + message.from + ' </b>: ' + message.data.toString()
+    textOutputHTML.innerHTML += '<span class="message"> <b>' + message.from + ' </b>: ' + message.data.toString() + '</span><br/>'
     )
 room.on('subscribed', () => {
     console.log('connected')
     status.innerHTML = 'connected'
 })
 
-    // testing broadcast every 2 seconds
+
+// testing broadcast every 2 seconds
 // setInterval(() => room.broadcast('testing broadcast'), 2000)
 // room.hasPeer(peer)
 function sendMsgOnClick() {
@@ -58,10 +68,10 @@ function sendMsgOnClick() {
     console.log(room.getPeers())
     let peers = room.getPeers()
     // room.broadcast("THIS IS A MESSAGE ONCLICK")
-    room.broadcast( getMessage) // broadcasts a message to the room
+    room.broadcast(getMessage) // broadcasts a message to the room
     // room.sendTo(peers[0], "Message to first peer in list")
     // room.sendTo(peers[1], "Message to second peer in list")
-    clearInput()
+    clearInput() // clearing input field
 }
 
 function clearInput () {

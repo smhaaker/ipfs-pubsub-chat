@@ -16,7 +16,7 @@ body {                /* body - or any parent wrapper */
     flex-direction: column;
     min-height: 100vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: .8em;
+    font-size: 0.9em;
     line-height: 20px;
   }
   
@@ -35,11 +35,15 @@ footer {
 }
 
 #headerBar{
-    float: right;
+    /* border: 1px solid green; */
+    width: 100%;
+    /* float: right; */
     padding: 10px;
-    margin-right: 2%;
+    margin-bottom: 1%;
 }
 #status{
+    float: right;
+    /* border: 1px solid black; */
     color: green;
 }
 #footerContent{
@@ -51,6 +55,7 @@ footer {
     padding: 12px 20px;
     margin: 0px 0;
     box-sizing: border-box;
+    
     /* border: 3px solid #ccc; */
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -61,6 +66,12 @@ footer {
 #msgInput:focus{
     border: 2px solid #555;
 }
+
+input[type="text"]
+{
+    font-size:1.2em;
+}
+
 button {
     /* float: right; */
     /* margin-right: 5px;
@@ -82,4 +93,17 @@ button:hover{
 }
 button:active{
     background-color: red;
+}
+
+#ipfsID{
+    float: left;
+    /* border: 1px solid black; */
+
+}
+
+.message{
+    color: black;
+    border: 1px solid white;
+    line-height: 1.5;
+    margin-left: 5px;
 }
