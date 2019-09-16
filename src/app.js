@@ -1,5 +1,3 @@
-console.log('compiled')
-
 const IPFS = require('ipfs')
 const Room = require('ipfs-pubsub-room')
 
@@ -29,13 +27,9 @@ ipfs.once('ready', () => ipfs.id((err, info) => {
 }))
 
 console.log(ipfs)
+// console.log(ipfs.pubsub)
 
-
-console.log(ipfs.pubsub)
-
-
-
-const room = Room(ipfs, 'ipfs-pubsub-rooms')
+const room = Room(ipfs, 'ipfs-pubsub-general-room')
 // change to whatever room
 
 console.log(room)
@@ -56,10 +50,10 @@ room.on('subscribed', () => {
     status.innerHTML = 'connected'
 })
 
-
 // testing broadcast every 2 seconds
 // setInterval(() => room.broadcast('testing broadcast'), 2000)
 // room.hasPeer(peer)
+
 function sendMsgOnClick() {
     let getMessage = document.getElementById("msgInput").value
     console.log(getMessage)
@@ -90,4 +84,6 @@ function repo () {
 }
 
 
-
+window.WindowFunction = function(){
+    console.log('testing window function');
+};

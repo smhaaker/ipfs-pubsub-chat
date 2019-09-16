@@ -25,12 +25,16 @@ header {
 }
 
 main {
+    /* margin-top: 4%; */
     flex: 1;
-    overflow: -moz-scrollbars-vertical; 
-    overflow-y: scroll;
+    display: flex;
+    /* overflow: -moz-scrollbars-vertical;  */
+    overflow-y: auto;
+    flex-direction: column-reverse;
+    margin-bottom: 4%;
 }
 footer {
-    background-color: blue;
+    background-color: #3d3b35;
     /* padding: 2px; */
 }
 
@@ -55,7 +59,7 @@ footer {
     padding: 12px 20px;
     margin: 0px 0;
     box-sizing: border-box;
-    
+    font-weight: bold;
     /* border: 3px solid #ccc; */
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -77,18 +81,20 @@ button {
     /* margin-right: 5px;
     margin-left: 5px; */
     padding: 10px;
+    font-size: 1.2em;
+    font-weight: 500;
     /* margin-top: 1%; */
     width: 19%;
-    background-color: #555555;
+    background-color: #3d3b35;
     color: white;
-    border: 0px solid #555555;
+    border: 0px solid #3d3b35;
     -webkit-transition-duration: 0.4s;
     cursor: pointer;
     /* border-radius: 4px; */
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 button:hover{
-    background-color: white; 
+    background-color: #47453d; 
     color: black; 
 }
 button:active{
@@ -106,4 +112,27 @@ button:active{
     border: 1px solid white;
     line-height: 1.5;
     margin-left: 5px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.stickyBottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+.container {
+    height: 95vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+
+.height{
+    border: 1px solid black;
 }
