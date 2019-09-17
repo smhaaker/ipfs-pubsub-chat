@@ -11,20 +11,37 @@ const ipfs = new IPFS({
     config: {
         Addresses: {
             Swarm: [
-            '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star'
+            '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star',
+            // '/p2p-circuit/ipfs/QmZLQiNPJSB2GB2ofGJLjH871bDbtc5iBpweFavJYAbPzu' // add singular peer
             ]
         }
     }
 })
 
 let ipfsID = document.getElementById('ipfsID')
+// let testAddr = '/p2p-circuit/ipfs/QmZLQiNPJSB2GB2ofGJLjH871bDbtc5iBpweFavJYAbPzu'
 
 ipfs.once('ready', () => ipfs.id((err, info) => {
     if (err) { throw err}
     console.log('IPFS node running, pubsub enabled')
+    console.log(info.addresses)
     console.log('Address: ' + info.id)
     ipfsID.innerHTML = info.id
+    // ipfs.swarm.peers({}, function(err, peers) {
+    //     console.log(peers)
+    // })
+    console.log((ipfs))
+    // ipfs.swarm.connect(testAddr, function (err) {
+    //     if (err) {
+    //       throw err
+    //     }
+    //     // if no err is present, connection is now open
+    //   })
+
+
 }))
+
+
 
 console.log(ipfs)
 // console.log(ipfs.pubsub)
@@ -87,3 +104,4 @@ function repo () {
 window.WindowFunction = function(){
     console.log('testing window function');
 };
+
