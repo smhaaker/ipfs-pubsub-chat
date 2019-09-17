@@ -1,4 +1,15 @@
 const IPFS = require('ipfs')
+
+
+let peers = [];
+
+for (let j = 2; j < process.argv.length; j++) {
+  peers.push(process.argv[j])
+  console.log(j + ' -> ' + (process.argv[j]));
+}
+
+console.log(peers)
+
 async function main() {
     node = await IPFS.create({ 
         start: false,
@@ -39,7 +50,9 @@ async function start(node) {
 
           // this works to connect to single peer. it only sends out to one.... 
           // it is static now so need to update before run. add as argument
-        node.swarm.connect('/dns4/ams-1.bootstrap.libp2p.io/tcp/443/wss/ipfs/QmPv9ADi7gBzkM1uAvdXS5gBxNYPLVNTuYhT9QC6t6Je4F') 
+        // node.swarm.connect('/dns4/ams-1.bootstrap.libp2p.io/tcp/443/wss/ipfs/QmPv9ADi7gBzkM1uAvdXS5gBxNYPLVNTuYhT9QC6t6Je4F') 
+        node.swarm.connect(peers[0]) // connect to peer 1 of input list
+
         // console.log(await node.id())
         // checkPeers(node)
         setTimeout(function(){ publish(node, topic, 'hello'); }, 3000); // works with delay so async it

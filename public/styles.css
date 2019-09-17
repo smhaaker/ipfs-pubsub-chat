@@ -109,7 +109,11 @@ button:active{
     line-height: 1.5;
     margin-left: 5px;
 }
-
+.peers{
+    color: pink;
+    line-height: 1.5;
+    margin-left: 20px;
+}
 .sticky {
     position: fixed;
     top: 0;

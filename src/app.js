@@ -113,5 +113,8 @@ window.WindowFunction = function(){
 window.getPeers = function(){
     let peers = room.getPeers()
     console.log('Peer List:' + peers);
-    textOutputHTML.innerHTML += peers
+    textOutputHTML.innerHTML += '<span class="peers"> Current Peers </span><br />'
+    peers.forEach(function(value) {
+        textOutputHTML.innerHTML += '<span class="peers"> ' + value + '</span><br />'
+    })
 };
