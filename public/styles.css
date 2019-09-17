@@ -1,17 +1,15 @@
 html {
-    background-color: gold;
+    background-color: #3d3b35;
 }
 
-
- img {
-	max-width: 100%;
-	height: auto;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /*QuickReset*/*{margin:0;box-sizing:border-box;}
 
-
-body {                /* body - or any parent wrapper */
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -75,7 +73,6 @@ input[type="text"]
 {
     font-size:1.2em;
 }
-
 button {
     /* float: right; */
     /* margin-right: 5px;
@@ -104,12 +101,10 @@ button:active{
 #ipfsID{
     float: left;
     /* border: 1px solid black; */
-
 }
-
 .message{
-    color: black;
-    border: 1px solid white;
+    color: white;
+    /* border: 1px solid white; */
     line-height: 1.5;
     margin-left: 5px;
 }
@@ -132,7 +127,6 @@ button:active{
     flex-direction: column-reverse;
   }
   
-
 .height{
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
