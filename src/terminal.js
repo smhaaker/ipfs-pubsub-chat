@@ -38,6 +38,7 @@ async function start(node) {
         })
 
           // this works to connect to single peer. it only sends out to one.... 
+          // it is static now so need to update before run. add as argument
         node.swarm.connect('/dns4/ams-1.bootstrap.libp2p.io/tcp/443/wss/ipfs/QmPv9ADi7gBzkM1uAvdXS5gBxNYPLVNTuYhT9QC6t6Je4F') 
         // console.log(await node.id())
         // checkPeers(node)

@@ -22,3 +22,5 @@ localhost:12345/index.html
 
 Each window has a unique Peer ID. 
 
+chat commands:
+/peers - gives a list of current peers

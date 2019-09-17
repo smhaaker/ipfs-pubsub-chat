@@ -75,13 +75,18 @@ function sendMsgOnClick() {
     let getMessage = document.getElementById("msgInput").value
     console.log(getMessage)
     // room.hasPeer(peer)
-
-    console.log(room.getPeers())
-    let peers = room.getPeers()
-    // room.broadcast("THIS IS A MESSAGE ONCLICK")
-    room.broadcast(getMessage) // broadcasts a message to the room
-    // room.sendTo(peers[0], "Message to first peer in list")
-    // room.sendTo(peers[1], "Message to second peer in list")
+    if (getMessage === '/peers')
+    {
+        getPeers()
+    }
+    else {
+        console.log(room.getPeers())
+        let peers = room.getPeers()
+        // room.broadcast("THIS IS A MESSAGE ONCLICK")
+        room.broadcast(getMessage) // broadcasts a message to the room
+        // room.sendTo(peers[0], "Message to first peer in list")
+        // room.sendTo(peers[1], "Message to second peer in list")
+    }    
     clearInput() // clearing input field
 }
 
@@ -105,3 +110,8 @@ window.WindowFunction = function(){
     console.log('testing window function');
 };
 
+window.getPeers = function(){
+    let peers = room.getPeers()
+    console.log('Peer List:' + peers);
+    textOutputHTML.innerHTML += peers
+};
