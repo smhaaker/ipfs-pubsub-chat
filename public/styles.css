@@ -16,6 +16,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.9em;
     line-height: 20px;
+    overflow: hidden;
   }
   
 header {
@@ -114,7 +115,6 @@ button:active{
     top: 0;
     width: 100%
 }
-
 .stickyBottom {
     position: fixed;
     bottom: 0;
@@ -125,8 +125,8 @@ button:active{
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
+    margin-bottom: 0%;
   }
-  
 .height{
     /* border: 1px solid black; */
 }
