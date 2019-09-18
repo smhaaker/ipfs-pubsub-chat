@@ -79,6 +79,10 @@ function sendMsgOnClick() {
     {
         getPeers()
     }
+    else if (getMessage === '/commands')
+    {
+        getCommands() 
+    }
     else {
         console.log(room.getPeers())
         let peers = room.getPeers()
@@ -118,3 +122,15 @@ window.getPeers = function(){
         textOutputHTML.innerHTML += '<span class="peers"> ' + value + '</span><br />'
     })
 };
+
+window.getCommands = function(){
+    let peers = room.getPeers()
+    console.log('Peer List:' + peers);
+    textOutputHTML.innerHTML += `<p class="commands"> In Chat Commands: <br />
+    /commands - this information <br />
+    /peers - lists all current peers <br />
+    /dm "peerid" "message" - sends dm to peer -- not yet implemented
+    /addpeer "peedid" - add peer -- not yet implemented
+    </p>`
+};
+
