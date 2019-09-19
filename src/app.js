@@ -20,12 +20,15 @@ const ipfs = new IPFS({
 
 let ipfsID = document.getElementById('ipfsID')
 // let testAddr = '/p2p-circuit/ipfs/QmZLQiNPJSB2GB2ofGJLjH871bDbtc5iBpweFavJYAbPzu'
+let textOutputHTML = document.getElementById('textOutput')
+let status = document.getElementById('status')
 
 ipfs.once('ready', () => ipfs.id((err, info) => {
     if (err) { throw err}
     console.log('IPFS node running, pubsub enabled')
     console.log(info.addresses)
     console.log('Address: ' + info.id)
+    textOutputHTML.innerHTML += `<p class="message">Welcome to IPFS pubsub chat <p>`
     ipfsID.innerHTML = info.id
     // ipfs.swarm.peers({}, function(err, peers) {
     //     console.log(peers)
@@ -55,8 +58,7 @@ room.on('peer joined', (peer) => console.log('peer ' + peer + ' joined'))
 room.on('peer left', (peer) => console.log('peer ' + peer + ' left'))
 
 room.on('peer joined', (peer) => room.sendTo(peer, 'Hello ' + peer))
-let textOutputHTML = document.getElementById('textOutput')
-let status = document.getElementById('status')
+
 
 room.on('message', (message) => 
     // console.log('got message from ' + message.from + ' : ' + message.data.toString())
@@ -75,13 +77,21 @@ function sendMsgOnClick() {
     let getMessage = document.getElementById("msgInput").value
     console.log(getMessage)
     // room.hasPeer(peer)
+    console.log(getMessage.substring(0, 2))
     if (getMessage === '/peers')
     {
         getPeers()
     }
-    else if (getMessage === '/commands')
+    else if (getMessage === '/help')
     {
-        getCommands() 
+        getHelp() 
+    }
+    else if (getMessage.substring(0, 3) === '/dm')
+    {
+        message = getMessage.substring(3);
+        // get the full input. 
+        // remove /dm then fish the message
+        directMessage(message)
     }
     else {
         console.log(room.getPeers())
@@ -117,20 +127,25 @@ window.WindowFunction = function(){
 window.getPeers = function(){
     let peers = room.getPeers()
     console.log('Peer List:' + peers);
-    textOutputHTML.innerHTML += '<span class="peers"> Current Peers </span><br />'
+    textOutputHTML.innerHTML += '<span class="peers"> Current Peers: </span><br />'
     peers.forEach(function(value) {
         textOutputHTML.innerHTML += '<span class="peers"> ' + value + '</span><br />'
     })
 };
 
-window.getCommands = function(){
+window.getHelp = function(){
     let peers = room.getPeers()
     console.log('Peer List:' + peers);
     textOutputHTML.innerHTML += `<p class="commands"> In Chat Commands: <br />
-    /commands - this information <br />
+    /help - this information <br />
     /peers - lists all current peers <br />
-    /dm "peerid" "message" - sends dm to peer -- not yet implemented
+    /dm "peerid" "message" - sends dm to peer -- not yet implemented <br />
     /addpeer "peedid" - add peer -- not yet implemented
     </p>`
+};
+
+window.directMessage = function(message){
+    let peers = room.getPeers()
+    room.sendTo(peers[0], message)
 };
 
