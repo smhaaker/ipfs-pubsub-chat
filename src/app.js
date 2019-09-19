@@ -89,9 +89,10 @@ function sendMsgOnClick() {
     else if (getMessage.substring(0, 3) === '/dm')
     {
         message = getMessage.substring(3);
-        // get the full input. 
-        // remove /dm then fish the message
-        directMessage(message)
+        let peerID = parseInt(message.substr(message.indexOf(" ") + 1));
+        // console.log(peerID)
+        let result = getMessage.split(" ").splice(2);
+        directMessage(result.join(" "), peerID)
     }
     else {
         console.log(room.getPeers())
@@ -128,9 +129,13 @@ window.getPeers = function(){
     let peers = room.getPeers()
     console.log('Peer List:' + peers);
     textOutputHTML.innerHTML += '<span class="peers"> Current Peers: </span><br />'
-    peers.forEach(function(value) {
-        textOutputHTML.innerHTML += '<span class="peers"> ' + value + '</span><br />'
-    })
+    for (let i = 0; i < peers.length; i++) {
+        textOutputHTML.innerHTML += `<span class="peers"> ID: ${i} address: ${peers[i]} </span><br />`
+        console.log(i)
+    }
+    // peers.forEach(function(value) {
+    //     textOutputHTML.innerHTML += '<span class="peers"> ' + value + '</span><br />'
+    // })
 };
 
 window.getHelp = function(){
@@ -139,13 +144,13 @@ window.getHelp = function(){
     textOutputHTML.innerHTML += `<p class="commands"> In Chat Commands: <br />
     /help - this information <br />
     /peers - lists all current peers <br />
-    /dm "peerid" "message" - sends dm to peer -- not yet implemented <br />
-    /addpeer "peedid" - add peer -- not yet implemented
+    /dm "peernumber" "message" - sends dm to peer -- (/dm 0 Hello peer number 1) <br />
+    /addpeer "peerid" - add peer -- not yet implemented
     </p>`
 };
 
-window.directMessage = function(message){
+window.directMessage = function(message, peerID){
     let peers = room.getPeers()
-    room.sendTo(peers[0], message)
+    room.sendTo(peers[peerID], message)
 };
 
