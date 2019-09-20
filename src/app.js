@@ -92,7 +92,9 @@ function sendMsgOnClick() {
         let peerID = parseInt(message.substr(message.indexOf(" ") + 1));
         // console.log(peerID)
         let result = getMessage.split(" ").splice(2);
-        directMessage(result.join(" "), peerID)
+        let formatted = result.join(" ")
+        let withStyle = `<span style="color: #a3d6b1"><i>${formatted}</i></span>`
+        directMessage(withStyle, peerID)
     }
     else {
         console.log(room.getPeers())
@@ -130,7 +132,7 @@ window.getPeers = function(){
     console.log('Peer List:' + peers);
     textOutputHTML.innerHTML += '<span class="peers"> Current Peers: </span><br />'
     for (let i = 0; i < peers.length; i++) {
-        textOutputHTML.innerHTML += `<span class="peers"> ID: ${i} address: ${peers[i]} </span><br />`
+        textOutputHTML.innerHTML += `<span class="peers"> ID: ${i} address: <span class="dmPeer${i}" onclick="clickPeer(${i})">${peers[i]} </span></span><br />`
         console.log(i)
     }
     // peers.forEach(function(value) {
@@ -152,5 +154,14 @@ window.getHelp = function(){
 window.directMessage = function(message, peerID){
     let peers = room.getPeers()
     room.sendTo(peers[peerID], message)
+};
+
+window.clickPeer = function(peerID){
+    console.log("peer clicked " + peerID)
+    // let inputField = document.getElementById("msgInput").value
+    // textOutputHTML.innerHTML= `/dm ${peerID}`;
+    document.getElementById("msgInput").value= "/dm " + peerID + " ";
+
+    // inputField.innerHTML = `/dm ${peerID}`
 };
 
