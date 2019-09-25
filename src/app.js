@@ -50,10 +50,17 @@ const room = Room(ipfs, 'ipfs-pubsub-general-room')
 
 console.log(room)
 
+room.on('peer joined', (peer) => {document.getElementById('peers').innerHTML += peer + '<br/>'})
+// hello = () => {
+//     document.getElementById("demo").innerHTML += this;
+//   }
 room.on('peer joined', (peer) => console.log('peer ' + peer + ' joined'))
 room.on('peer left', (peer) => console.log('peer ' + peer + ' left'))
 
+
+
 room.on('peer joined', (peer) => room.sendTo(peer, 'Hello ' + peer))
+
 
 
 room.on('message', (message) => 
@@ -114,7 +121,6 @@ function repo () {
     // random ID's generated each reload
     return 'ipfs/pubsub/' + Math.random()
 }
-
 
 window.WindowFunction = function(){
     console.log('testing window function');
