@@ -40,11 +40,7 @@ ipfs.once('ready', () => ipfs.id((err, info) => {
     //     }
     //     // if no err is present, connection is now open
     //   })
-
-
 }))
-
-
 
 console.log(ipfs)
 // console.log(ipfs.pubsub)
@@ -99,11 +95,8 @@ function sendMsgOnClick() {
     else {
         console.log(room.getPeers())
         let peers = room.getPeers()
-        // room.broadcast("THIS IS A MESSAGE ONCLICK")
         room.broadcast(getMessage) // broadcasts a message to the room
-        // room.sendTo(peers[0], "Message to first peer in list")
-        // room.sendTo(peers[1], "Message to second peer in list")
-    }    
+     }    
     clearInput() // clearing input field
 }
 
@@ -157,11 +150,6 @@ window.directMessage = function(message, peerID){
 };
 
 window.clickPeer = function(peerID){
-    console.log("peer clicked " + peerID)
-    // let inputField = document.getElementById("msgInput").value
-    // textOutputHTML.innerHTML= `/dm ${peerID}`;
     document.getElementById("msgInput").value= "/dm " + peerID + " ";
-
-    // inputField.innerHTML = `/dm ${peerID}`
 };
 
