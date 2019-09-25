@@ -57,8 +57,6 @@ room.on('peer joined', (peer) => {document.getElementById('peers').innerHTML += 
 room.on('peer joined', (peer) => console.log('peer ' + peer + ' joined'))
 room.on('peer left', (peer) => console.log('peer ' + peer + ' left'))
 
-
-
 room.on('peer joined', (peer) => room.sendTo(peer, 'Hello ' + peer))
 
 
@@ -159,3 +157,11 @@ window.clickPeer = function(peerID){
     document.getElementById("msgInput").value= "/dm " + peerID + " ";
 };
 
+window.showPeer = function(){
+    let x = document.getElementById("sidemenu");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+};

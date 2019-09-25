@@ -101,6 +101,7 @@ button:active{
 
 #ipfsID{
     float: left;
+    margin-left: 5px;
     /* border: 1px solid black; */
 }
 .message{
@@ -144,7 +145,8 @@ button:active{
 .dm{
     color: blue;
 }
-.sidemenu{
+#sidemenu{
+    display: none;
     width: 25%;
     font-size: 0.8em;
     background-color: aqua;
@@ -152,4 +154,10 @@ button:active{
     left:0%;
     top:3%;
     z-index: -1;
+}
+#showButton{
+    background-color: gray;
+    padding: 0px;
+    float: left;
+    width: 5%;
 }
