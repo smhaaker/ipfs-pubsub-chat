@@ -154,6 +154,7 @@ button:active{
     left:0%;
     top:3%;
     z-index: -1;
+    word-wrap: break-word;
 }
 #showButton{
     background-color: gray;
