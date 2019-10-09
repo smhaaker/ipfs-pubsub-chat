@@ -60,10 +60,14 @@ room.on('peer left', (peer) => console.log('peer ' + peer + ' left'))
 room.on('peer joined', (peer) => room.sendTo(peer, 'Hello ' + peer))
 
 
-
+function timeStamp () {
+    let ts = new Date();
+    console.log(ts.toLocaleTimeString());
+    return ts.toLocaleTimeString();
+}
 room.on('message', (message) => 
     // console.log('got message from ' + message.from + ' : ' + message.data.toString())
-    textOutputHTML.innerHTML += '<span class="message"> <b>' + message.from + ' </b>: ' + message.data.toString() + '</span><br/>'
+    textOutputHTML.innerHTML += '<span class="message"> <b> <span class="timestamp">' + timeStamp() + `</span> ` + message.from + ' </b>: ' + message.data.toString() + '</span><br/>'
     )
 room.on('subscribed', () => {
     console.log('connected')
@@ -158,6 +162,7 @@ window.clickPeer = function(peerID){
 };
 
 window.showPeer = function(){
+    let x = document.getElementById("sidemenu");
     if (x != null) {
         if (x.style.display == "block") {
             x.style.display = 'none';
