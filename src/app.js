@@ -62,8 +62,8 @@ room.on('peer joined', (peer) => room.sendTo(peer, 'Hello ' + peer))
 
 function timeStamp () {
     let ts = new Date();
-    console.log(ts.toLocaleTimeString());
-    return ts.toLocaleTimeString();
+    console.log(ts.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
+    return ts.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 }
 room.on('message', (message) => 
     // console.log('got message from ' + message.from + ' : ' + message.data.toString())
