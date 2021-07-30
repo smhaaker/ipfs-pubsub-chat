@@ -12,8 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "browserify": "^16.5.0",
-    "http-server": "^0.11.1",
-    "ipfs": "^0.37.1",
+    "http-server": "^0.12.3",
+    "ipfs": "^0.56.0",
     "ipfs-pubsub-room": "^1.4.1"
   }
 }
